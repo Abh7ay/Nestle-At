@@ -2,7 +2,7 @@ import React from "react";
 import { assets } from "../assets/assets";
 import { motion } from "framer-motion";
 
-const about = () => {
+const About = () => {
   return (
     <motion.div
     initial={{opacity:0, x:200}}
@@ -63,4 +63,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;

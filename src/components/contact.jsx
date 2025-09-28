@@ -2,7 +2,7 @@ import React from 'react'
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 
-const contact = () => {
+const Contact = () => {
 
     const [result, setResult] = React.useState("");
 
@@ -68,4 +68,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact
