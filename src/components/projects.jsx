@@ -35,6 +35,16 @@ const Projects = () => {
             <span className='underline underline-offset-4 decoration-1 under font-light'> Completed </span></h1>
         <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Crafting Spaces , Building Legacies - Explore Our portfolio</p>
        
+       {/* Navigation button to Future Projects */}
+       <div className='text-center mb-8'>
+        <a
+          href="#FutureProjects"
+          className='inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors'
+        >
+          View Future Projects
+        </a>
+       </div>
+
        {/* --------------- slider button--------------  */} 
 
        <div className='flex justify-end items-center mb-8'>

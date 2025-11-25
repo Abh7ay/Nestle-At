@@ -8,6 +8,8 @@ import Testimonials from './components/testimonials'
 import Contact from './components/contact'
 import Login from './components/login'
 import Signup from './components/signup'
+import FutureProjects from './components/futureProjects'
+import SubmitIdea from './components/submitIdea'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/footer'
@@ -17,7 +19,9 @@ const HomePage = () => (
     <Header/>
     <About/>
     <Projects/>
+    <FutureProjects/>
     <Testimonials/>
+    <SubmitIdea/>
     <Contact/>
     <Footer/>
   </>
