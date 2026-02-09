@@ -68,10 +68,22 @@ export const projectsData = [
       location: "Chicago",
       image: project_img_6
     },
-    
-  ];
+];
 
-  export const testimonialsData = [
+export const vistaPropertiesData = projectsData.map((project, index) => ({
+    id: index + 1,
+    title: project.title,
+    type: 'House',
+    city: project.location,
+    price: 250000,
+    beds: 3,
+    baths: 2,
+    floorspace: 1200 + (index * 200),
+    image: project.image,
+    featured: index < 3
+}));
+
+export const testimonialsData = [
     {
         name: "Donald Jackman",
         title: "Marketing Manager",
