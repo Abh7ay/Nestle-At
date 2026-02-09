@@ -116,7 +116,7 @@ const VistaHavenTestimonials = () => {
                 <div className="relative">
                   <Quote className="absolute -top-4 -left-4 w-12 h-12 text-accent-gold/20" />
                   <p className="text-lg text-gray-700 leading-relaxed italic">
-                    "{testimonials[currentIndex].text}"
+                    {testimonials[currentIndex].text.replace(/^["']|["']$/g, '')}
                   </p>
                 </div>
               </div>

@@ -156,7 +156,7 @@ const VistaHavenHero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.8, ease: "easeOut" }}
-              className="flex items-center justify-center gap-8 mb-12"
+              className="flex items-center justify-center gap-8 mb-12 mt-20"
             >
               <div className="flex items-center text-gray-300">
                 <CheckCircle className="w-5 h-5 mr-2 text-accent-gold" />
@@ -171,31 +171,43 @@ const VistaHavenHero = () => {
                 <span className="text-sm font-medium">Premium Quality</span>
               </div>
             </motion.div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 2 }}
+              className="flex flex-col items-center text-gray-400 cursor-pointer hover:text-accent-gold transition-colors mt-16"
+            >
+              <Link
+                to="properties"
+                smooth={true}
+                duration={800}
+                className="flex flex-col items-center"
+              >
+                <div className="flex space-x-2 mb-4">
+                  <motion.div 
+                    className="w-1 h-1 bg-current rounded-full"
+                    animate={{ scale: [1, 1.5, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                  />
+                  <motion.div 
+                    className="w-1 h-1 bg-current rounded-full"
+                    animate={{ scale: [1, 1.5, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+                  />
+                  <motion.div 
+                    className="w-1 h-1 bg-current rounded-full"
+                    animate={{ scale: [1, 1.5, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
+                  />
+                </div>
+                <span className="text-sm font-medium animate-pulse">Scroll to explore properties</span>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <Link
-          to="properties"
-          smooth={true}
-          duration={800}
-          className="flex flex-col items-center text-gray-400 cursor-pointer hover:text-accent-gold transition-colors"
-        >
-          <div className="flex space-y-2 mb-3">
-            <div className="w-1 h-1 bg-current rounded-full"></div>
-            <div className="w-1 h-1 bg-current rounded-full"></div>
-            <div className="w-1 h-1 bg-current rounded-full"></div>
-          </div>
-          <span className="text-sm font-medium animate-pulse">Scroll to explore properties</span>
-        </Link>
-      </motion.div>
     </section>
   );
 };
