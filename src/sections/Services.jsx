@@ -18,7 +18,7 @@ import {
   Key
 } from 'lucide-react';
 
-const VistaHavenServices = () => {
+const Services = () => {
   const [activeTab, setActiveTab] = useState('featured');
 
   const featuredServices = [
@@ -333,4 +333,4 @@ const VistaHavenServices = () => {
   );
 };
 
-export default VistaHavenServices;
+export default Services;

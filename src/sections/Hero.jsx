@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-scroll';
 
-const VistaHavenHero = () => {
+const Hero = () => {
   const stats = [
     { 
       icon: Building, 
@@ -212,4 +212,4 @@ const VistaHavenHero = () => {
   );
 };
 
-export default VistaHavenHero;
+export default Hero;

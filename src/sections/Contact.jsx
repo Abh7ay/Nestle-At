@@ -13,7 +13,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const VistaHavenContact = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -65,7 +65,7 @@ const VistaHavenContact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'info@vistahaven.com',
+      details: 'info@nestle.com',
       description: 'We respond within 24 hours'
     },
     {
@@ -345,4 +345,4 @@ const VistaHavenContact = () => {
   );
 };
 
-export default VistaHavenContact;
+export default Contact;

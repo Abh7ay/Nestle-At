@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { assets } from '../../assets/assets';
 
-const VistaHavenFooter = () => {
+const Footer = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -225,4 +225,4 @@ const VistaHavenFooter = () => {
   );
 };
 
-export default VistaHavenFooter;
+export default Footer;

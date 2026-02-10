@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { testimonialsData } from '../assets/assets';
 
-const VistaHavenTestimonials = () => {
+const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = testimonialsData;
@@ -243,4 +243,4 @@ const VistaHavenTestimonials = () => {
   );
 };
 
-export default VistaHavenTestimonials;
+export default Testimonials;

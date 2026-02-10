@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import { assets, vistaPropertiesData } from '../assets/assets';
 
-const VistaHavenProperties = () => {
+const Properties = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -310,4 +310,4 @@ const VistaHavenProperties = () => {
   );
 };
 
-export default VistaHavenProperties;
+export default Properties;

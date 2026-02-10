@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { assets } from '../../assets/assets';
 
-const VistaHavenNavbar = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -149,7 +149,7 @@ const VistaHavenNavbar = () => {
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600">
                   <Mail className="w-4 h-4" />
-                  <span className="text-sm">info@vistahaven.com</span>
+                  <span className="text-sm">info@nestle.com</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600">
                   <MapPin className="w-4 h-4" />
@@ -164,4 +164,4 @@ const VistaHavenNavbar = () => {
   );
 };
 
-export default VistaHavenNavbar;
+export default Navbar;

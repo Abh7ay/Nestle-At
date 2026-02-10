@@ -17,15 +17,15 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-const VistaHavenFAQ = () => {
+const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
     {
       id: 1,
       category: 'General',
-      question: 'What services does VistaHaven offer?',
-      answer: 'VistaHaven offers comprehensive real estate services including property sales, buyer representation, rental management, investment consulting, property valuation, and legal services. We provide end-to-end solutions for all your real estate needs.',
+      question: 'What services does Nestle offer?',
+      answer: 'Nestle offers comprehensive real estate services including property sales, buyer representation, rental management, investment consulting, property valuation, and legal services. We provide end-to-end solutions for all your real estate needs.',
       icon: Building
     },
     {
@@ -314,4 +314,4 @@ const VistaHavenFAQ = () => {
   );
 };
 
-export default VistaHavenFAQ;
+export default FAQ;

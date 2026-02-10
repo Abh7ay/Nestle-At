@@ -16,7 +16,7 @@ import {
   Home
 } from 'lucide-react';
 
-const VistaHavenAbout = () => {
+const About = () => {
   const stats = [
     { 
       icon: Building, 
@@ -71,7 +71,7 @@ const VistaHavenAbout = () => {
     {
       year: '2008',
       title: 'Foundation',
-      description: 'VistaHaven was founded with a vision to revolutionize luxury real estate services.',
+      description: 'Nestle was founded with a vision to revolutionize luxury real estate services.',
       icon: Building
     },
     {
@@ -293,7 +293,7 @@ const VistaHavenAbout = () => {
         >
           <div className="bg-gradient-to-r from-primary-dark to-gray-800 rounded-2xl p-12 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Experience the VistaHaven Difference?
+              Ready to Experience the Nestle Difference?
             </h3>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied clients who have found their dream properties through our expert guidance.
@@ -314,4 +314,4 @@ const VistaHavenAbout = () => {
   );
 };
 
-export default VistaHavenAbout;
+export default About;
