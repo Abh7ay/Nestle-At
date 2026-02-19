@@ -68,7 +68,6 @@ const Signup = () => {
             
             // For demo purposes, accept any valid form data
             toast.success('Account created successfully!')
-            console.log('Signup data:', formData)
             
             // Reset form
             setFormData({
@@ -80,7 +79,7 @@ const Signup = () => {
                 confirmPassword: ''
             })
             setAcceptTerms(false)
-        } catch (error) {
+        } catch {
             toast.error('Signup failed. Please try again.')
         } finally {
             setIsLoading(false)

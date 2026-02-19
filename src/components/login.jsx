@@ -42,11 +42,10 @@ const Login = () => {
             
             // For demo purposes, accept any email/password
             toast.success('Login successful!')
-            console.log('Login data:', formData)
             
             // Reset form
             setFormData({ email: '', password: '' })
-        } catch (error) {
+        } catch {
             toast.error('Login failed. Please try again.')
         } finally {
             setIsLoading(false)

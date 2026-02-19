@@ -165,7 +165,7 @@ const About = () => {
               property transaction a seamless and rewarding experience.
             </p>
             <div className="space-y-4">
-              {['Personalized Service', 'Market Expertise', 'Client Satisfaction'].map((item, index) => (
+              {['Personalized Service', 'Market Expertise', 'Client Satisfaction'].map((item) => (
                 <div key={item} className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-accent-gold mr-3 flex-shrink-0" />
                   <span className="text-gray-700">{item}</span>
@@ -186,7 +186,7 @@ const About = () => {
               communities.
             </p>
             <div className="space-y-4">
-              {['Industry Leadership', 'Sustainable Growth', 'Global Reach'].map((item, index) => (
+              {['Industry Leadership', 'Sustainable Growth', 'Global Reach'].map((item) => (
                 <div key={item} className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-accent-gold mr-3 flex-shrink-0" />
                   <span className="text-gray-700">{item}</span>

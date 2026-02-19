@@ -17,14 +17,14 @@ import {
   TrendingUp,
   ArrowRight
 } from 'lucide-react';
-import { assets, vistaPropertiesData } from '../assets/assets';
+import { vistaPropertiesData } from '../assets/assets';
 
 const Properties = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const properties = vistaPropertiesData.map((property, index) => ({
+  const properties = vistaPropertiesData.map((property) => ({
     id: property.id,
     title: property.title,
     type: property.type,
@@ -285,8 +285,8 @@ const Properties = () => {
             ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
             : 'grid-cols-1'
         }`}>
-          {filteredProperties.map((property, index) => (
-            <PropertyCard key={property.id} property={property} index={index} />
+          {filteredProperties.map((property) => (
+            <PropertyCard key={property.id} property={property} />
           ))}
         </div>
 
