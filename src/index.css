@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --palette-light: #F2EAF7;
+  --palette-soft: #C59DD9;
+  --palette-mid: #7A3F91;
+  --palette-dark: #2B0D3E;
+}
+
 /* Base Styles */
 * {
   margin: 0;
@@ -18,7 +25,8 @@ html {
 
 body {
   font-family: 'DM Sans', sans-serif;
-  color: #111827;
+  color: var(--palette-dark);
+  background: var(--palette-light);
   line-height: 1.6;
 }
 
@@ -120,31 +128,31 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--palette-dark);
+  color: var(--palette-light);
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #374151;
+  background-color: var(--palette-mid);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #1a1a1a;
-  color: #1a1a1a;
+  border: 2px solid var(--palette-dark);
+  color: var(--palette-dark);
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--palette-dark);
+  color: var(--palette-light);
 }
 
 /* Custom scrollbar */
@@ -153,15 +161,47 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--palette-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--palette-soft);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--palette-dark);
 }
+
+/* Global palette remap for existing Tailwind utility usage across sections */
+.bg-white { background-color: var(--palette-light) !important; }
+.text-white { color: var(--palette-light) !important; }
+.bg-gray-50 { background-color: var(--palette-light) !important; }
+.bg-gray-100 { background-color: color-mix(in srgb, var(--palette-light) 80%, var(--palette-soft)) !important; }
+.text-gray-300 { color: color-mix(in srgb, var(--palette-light) 72%, var(--palette-dark)) !important; }
+.text-gray-400 { color: color-mix(in srgb, var(--palette-dark) 65%, var(--palette-light)) !important; }
+.text-gray-500 { color: color-mix(in srgb, var(--palette-dark) 72%, var(--palette-light)) !important; }
+.text-gray-600 { color: color-mix(in srgb, var(--palette-dark) 82%, var(--palette-light)) !important; }
+.text-gray-700 { color: var(--palette-dark) !important; }
+.text-gray-800 { color: var(--palette-dark) !important; }
+.text-gray-900 { color: var(--palette-dark) !important; }
+.border-gray-100,
+.border-gray-200,
+.border-gray-300 { border-color: color-mix(in srgb, var(--palette-dark) 18%, var(--palette-light)) !important; }
+.bg-accent-gold,
+.from-accent-gold,
+.to-accent-gold,
+.text-accent-gold { color: var(--palette-mid) !important; }
+.bg-accent-gold,
+.from-accent-gold,
+.to-accent-gold { background-color: var(--palette-mid) !important; }
+.from-accent-gold { --tw-gradient-from: var(--palette-mid) var(--tw-gradient-from-position) !important; }
+.to-yellow-400,
+.to-yellow-500,
+.from-yellow-400,
+.from-yellow-500 { --tw-gradient-to: var(--palette-soft) var(--tw-gradient-to-position) !important; }
+.bg-primary-dark,
+.from-primary-dark,
+.to-gray-800 { background-color: var(--palette-dark) !important; }
+.text-primary-dark { color: var(--palette-dark) !important; }
 

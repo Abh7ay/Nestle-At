@@ -78,7 +78,7 @@ const Testimonials = () => {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Client Info */}
                 <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center mb-4">
+                  <div className="relative mx-auto mb-4 flex w-fit items-center justify-center md:mx-0">
                     <img
                       src={testimonials[currentIndex].image}
                       alt={testimonials[currentIndex].alt || testimonials[currentIndex].name}

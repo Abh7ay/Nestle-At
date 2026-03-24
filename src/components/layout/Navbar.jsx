@@ -56,7 +56,7 @@ const Navbar = () => {
                 <div>
                   <img 
                     src={assets.logo} 
-                    alt="Nestel@" 
+                    alt="Nestle@" 
                     className="h-10 w-auto transition-all duration-300"
                   />
                 </div>

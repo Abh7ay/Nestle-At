@@ -17,6 +17,7 @@ import {
   Camera,
   Key
 } from 'lucide-react';
+import { assets } from '../assets/assets';
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState('featured');
@@ -44,7 +45,7 @@ const Services = () => {
       icon: TrendingUp,
       features: ['Market Analysis', 'ROI Optimization', 'Portfolio Management', 'Risk Assessment'],
       color: 'from-purple-500 to-purple-600',
-      image: 'https://images.unsplash.com/photo-1556756659-5e3766cd543f?w=800&h=600&fit=crop'
+      image: assets.project_img_3
     }
   ];
 

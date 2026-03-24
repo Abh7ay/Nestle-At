@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Components
-import Navbar from './components/layout/Navbar'
 import Hero from './sections/Hero'
 import Services from './sections/Services'
 import Properties from './sections/Properties'
@@ -21,7 +20,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = () => (
   <div className="min-h-screen">
-    <Navbar />
     <main>
       <Hero />
       <Services />

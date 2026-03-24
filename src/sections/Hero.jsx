@@ -1,212 +1,207 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { AnimatePresence, motion as Motion } from 'framer-motion';
 import { assets } from '../assets/assets';
-import { 
-  ArrowRight, 
-  MapPin, 
-  Home, 
-  Building, 
-  Star, 
-  Shield, 
-  CheckCircle,
-  Phone,
-  Mail
-} from 'lucide-react';
+import heroBackgroundImage from '../assets/pexels-artbovich-7031408.jpg';
+import { ArrowRight, ArrowUpRight, Menu, Star } from 'lucide-react';
 import { Link } from 'react-scroll';
+import { testimonialsData } from '../assets/assets';
 
 const Hero = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: 'Home', target: 'hero' },
+    { label: 'Services', target: 'services' },
+    { label: 'Properties', target: 'properties' },
+    { label: 'About', target: 'about' },
+    { label: 'Agents', target: 'testimonials' },
+  ];
+
   const stats = [
-    { 
-      icon: Building, 
-      number: '500+', 
-      label: 'Properties Sold',
-      description: 'Successfully delivered properties'
-    },
-    { 
-      icon: Home, 
-      number: '1,200+', 
-      label: 'Happy Clients',
-      description: 'Satisfied families and investors'
-    },
-    { 
-      icon: Shield, 
-      number: '$50M+', 
-      label: 'Total Value',
-      description: 'Property transactions completed'
-    },
-    { 
-      icon: Star, 
-      number: '15+', 
-      label: 'Expert Agents',
-      description: 'Dedicated professionals'
-    }
+    { number: '200+', label: 'Projects Complete' },
+    { number: '70+', label: 'Happy Clients' },
+    { number: '$10M+', label: 'Project Value' },
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background Image Only */}
-      <div className="absolute inset-0">
+    <section id="hero" className="relative overflow-hidden bg-[#140d0f] py-5 md:py-8 lg:py-10">
+      <div className="pointer-events-none absolute inset-0">
         <img
-          src={assets.header_img}
-          alt="Real Estate Header"
-          className="w-full h-full object-cover"
+          src={heroBackgroundImage}
+          alt=""
+          className="absolute inset-0 h-full w-full scale-[1.06] object-cover brightness-[0.62] contrast-[1.02]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-[#2a140b]/15 to-black/35" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-custom min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-center"
-          >
-            {/* Main Heading */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="heading-xl mb-6 text-white leading-tight tracking-tight mt-32"
-            >
-              Find Your Perfect
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent-gold to-yellow-400">
-                Luxury Home Today
-              </span>
-            </motion.h1>
+      <div className="container-custom relative z-10">
+        <Motion.header
+          initial={{ opacity: 0, y: -14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-6 flex items-center justify-between rounded-full border border-white/30 bg-black/25 px-3 py-2 text-white shadow-[0_12px_28px_rgba(0,0,0,0.28)] backdrop-blur-xl md:px-5"
+        >
+          <div className="flex items-center px-1 py-1">
+            <img src={assets.logo} alt="Nestle@" className="h-8 w-auto md:h-9" />
+          </div>
 
-            {/* Subheading */}
-            <motion.p 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              className="text-xl md:text-2xl text-gray-300 mb-16 max-w-4xl mx-auto leading-relaxed"
-            >
-              Your trusted partner in finding the perfect property. 
-              We guide you through every step with personalized service.
-            </motion.p>
-
-            {/* Stats Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20"
-                  whileHover={{ scale: 1.05, y: -10 }}
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-accent-gold to-yellow-400 rounded-2xl group-hover:scale-110 transition-transform duration-500">
-                    <stat.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                  <div className="text-lg font-semibold text-accent-gold mb-1">{stat.label}</div>
-                  <div className="text-sm text-gray-300">{stat.description}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* CTA Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
-              className="flex flex-col md:flex-row gap-6 justify-center items-center"
-            >
-              <motion.a
-                href="#properties"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-                className="group relative px-10 py-5 bg-accent-gold text-primary-dark rounded-2xl font-bold text-lg flex items-center hover:bg-yellow-400 hover:shadow-2xl transition-all duration-300 overflow-hidden"
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
+          <nav className="hidden items-center gap-2 text-[15px] font-semibold text-white lg:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.target}
+                smooth={true}
+                duration={650}
+                className={`cursor-pointer rounded-full px-5 py-2.5 transition-all duration-300 hover:text-white ${
+                  item.label === 'Home' ? 'bg-white/22 text-white shadow-inner shadow-black/10' : 'hover:bg-white/14'
+                }`}
               >
-                <span className="relative z-10">Explore Properties</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-accent-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <ArrowRight className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-2" />
-              </motion.a>
-              
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 md:flex">
+              <span className="h-5 w-5 rounded-full bg-white/80" />
+            </div>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={650}
+              className="hidden cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-2.5 text-sm font-semibold text-[#2B0D3E] transition-all duration-300 hover:brightness-95 md:flex"
+            >
+              <span>Contact Us Now</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2B0D3E] text-white">
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-label="Toggle navigation menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-300 hover:bg-white/20 lg:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+          </div>
+        </Motion.header>
+
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <Motion.nav
+              initial={{ opacity: 0, y: -12, height: 0 }}
+              animate={{ opacity: 1, y: 0, height: 'auto' }}
+              exit={{ opacity: 0, y: -8, height: 0 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              className="mb-4 overflow-hidden rounded-2xl border border-white/20 bg-[#2B0D3E]/90 p-3 shadow-sm backdrop-blur-sm lg:hidden"
+            >
+              <div className="grid grid-cols-2 gap-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.target}
+                    smooth={true}
+                    duration={650}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="cursor-pointer rounded-xl px-3 py-2 text-sm font-medium text-[#F2EAF7] transition-colors duration-200 hover:bg-white/12 hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
               <Link
                 to="contact"
                 smooth={true}
-                duration={800}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.6 }}
-                className="group relative px-10 py-5 border-2 border-white/50 rounded-2xl font-bold text-lg flex items-center bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary-dark hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
+                duration={650}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-3 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#C59DD9] px-4 py-2.5 text-sm font-medium text-[#2B0D3E]"
               >
-                <span className="relative z-10">Get Started Today</span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <ArrowRight className="w-5 h-5 ml-3 transition-transform duration-300 group-hover:translate-x-2" />
+                <span className="h-2 w-2 rounded-full bg-[#2B0D3E]" />
+                Contact Us Now
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
-            </motion.div>
+            </Motion.nav>
+          )}
+        </AnimatePresence>
 
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.8, ease: "easeOut" }}
-              className="flex items-center justify-center gap-8 mb-12 mt-20"
+        <Motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="relative min-h-[76vh] md:min-h-[82vh]"
+        >
+          <div className="relative z-10 flex min-h-[76vh] items-end pb-8 pt-8 md:min-h-[82vh] md:pb-10 md:pt-10">
+            <Motion.div
+              initial={{ opacity: 0, x: -26 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.22, ease: 'easeOut' }}
+              className="max-w-[690px] rounded-[24px] bg-black/22 p-6 backdrop-blur-[2px] md:p-8"
             >
-              <div className="flex items-center text-gray-300">
-                <CheckCircle className="w-5 h-5 mr-2 text-accent-gold" />
-                <span className="text-sm font-medium">Trusted by Many</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Star className="w-5 h-5 mr-2 text-accent-gold" />
-                <span className="text-sm font-medium">5-Star Service</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Shield className="w-5 h-5 mr-2 text-accent-gold" />
-                <span className="text-sm font-medium">Premium Quality</span>
-              </div>
-            </motion.div>
+              <h1 className="font-sans text-[3.05rem] font-semibold uppercase leading-[0.94] tracking-[-0.03em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] sm:text-[3.8rem] md:text-[5.2rem]">
+                Find your
+                <br />
+                perfect home
+                <br />
+                today
+              </h1>
 
-            {/* Scroll Indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 2 }}
-              className="flex flex-col items-center text-gray-400 cursor-pointer hover:text-accent-gold transition-colors mt-16"
-            >
-              <Link
-                to="properties"
-                smooth={true}
-                duration={800}
-                className="flex flex-col items-center"
-              >
-                <div className="flex space-x-2 mb-4">
-                  <motion.div 
-                    className="w-1 h-1 bg-current rounded-full"
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
-                  />
-                  <motion.div 
-                    className="w-1 h-1 bg-current rounded-full"
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-                  />
-                  <motion.div 
-                    className="w-1 h-1 bg-current rounded-full"
-                    animate={{ scale: [1, 1.5, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
-                  />
-                </div>
-                <span className="text-sm font-medium animate-pulse">Scroll to explore properties</span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+              <p className="mt-6 max-w-[590px] text-[1.02rem] leading-[1.45] text-white/95 md:text-lg md:leading-[1.45]">
+                We provide tailored real estate solutions, guiding you through every step with personalized experiences that meet your unique needs and aspirations.
+              </p>
+
+              <Motion.div whileHover={{ y: -1.5 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  to="properties"
+                  smooth={true}
+                  duration={650}
+                  className="group mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#2B0D3E] transition-all duration-300 hover:bg-[#e7dbef]"
+                >
+                  <span>Explore Properties</span>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#7A3F91] text-white transition-transform duration-300 group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </Motion.div>
+
+              <div className="mt-8 grid max-w-[500px] grid-cols-3 gap-6 text-white md:mt-10">
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    <p className="font-sans text-[2.25rem] font-light leading-none tracking-tight md:text-[2.8rem]">{stat.number}</p>
+                    <p className="mt-1 text-sm text-white/80 md:text-base">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </Motion.div>
+          </div>
+
+          <Motion.aside
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+            className="absolute bottom-3 right-0 z-30 hidden items-center gap-2 rounded-full bg-white px-2.5 py-1.5 shadow-[0_12px_22px_rgba(0,0,0,0.25)] md:flex lg:bottom-4"
+          >
+            <div className="flex -space-x-2">
+              {[0, 1, 2, 0].map((index, imageIndex) => (
+                <img
+                  key={`${index}-${imageIndex}`}
+                  src={testimonialsData[index].image}
+                  alt={testimonialsData[index].name}
+                  className="h-9 w-9 rounded-full border-2 border-white object-cover"
+                />
+              ))}
+            </div>
+            <div className="pr-0.5">
+              <p className="whitespace-nowrap text-[0.82rem] font-semibold leading-none text-[#2B0D3E] md:text-[1.02rem]">10+ Featured Agents</p>
+              <div className="mt-0.5 flex items-center gap-0.5 text-[#7A3F91]">
+                {[0, 1, 2, 3, 4].map((star) => (
+                  <Star key={star} className="h-2.5 w-2.5 fill-[#7A3F91]" />
+                ))}
+                <span className="ml-1 text-[0.78rem] font-semibold leading-none text-[#2B0D3E] md:text-[0.9rem]">5 / 5</span>
+              </div>
+            </div>
+          </Motion.aside>
+        </Motion.div>
       </div>
     </section>
   );

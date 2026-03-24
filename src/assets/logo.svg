@@ -1,13 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="100" viewBox="0 0 400 100">
-  <!-- Background -->
-  <rect width="400" height="100" fill="none"/>
-  
-  <!-- Circle with lightning-like symbol -->
-  <circle cx="50" cy="50" r="35" fill="#ffffff"/>
-  <polygon points="45,25 60,50 50,50 55,75 40,50 50,50" fill="#2C2C2C"/>
-  
-  <!-- Text -->
-  <text x="110" y="58" font-family="Poppins, Arial, sans-serif" font-size="40" font-weight="600" fill="#ffffff">
-    Nestle@
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="110" viewBox="0 0 420 110" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Nestle@ Logo</title>
+  <desc id="logoDesc">A rounded badge with an N monogram and a Nestle@ wordmark.</desc>
+
+  <rect x="0" y="0" width="420" height="110" fill="none" />
+
+  <g transform="translate(16 14)">
+    <path d="M22 61V23h10l20 25V23h10v38H52L32 36v25H22z" fill="#F2EAF7" />
+    <path d="M18 19l24-9 24 9" fill="none" stroke="#C59DD9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="66" cy="18" r="6" fill="#C59DD9" />
+  </g>
+
+  <g fill="#F2EAF7" font-family="Poppins, Montserrat, Arial, sans-serif">
+    <text x="118" y="55" font-size="38" font-weight="700" letter-spacing="0.5">Nestle@</text>
+    <text x="118" y="78" font-size="13" font-weight="500" opacity="0.92" letter-spacing="2.8">PREMIUM REAL ESTATE</text>
+  </g>
 </svg>

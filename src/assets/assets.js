@@ -68,19 +68,37 @@ export const projectsData = [
       location: "Chicago",
       image: project_img_6
     },
+    {
+      title: "Palm Crest Villas",
+      price: "$3,10,000",
+      location: "Miami",
+      image: project_img_2
+    },
+    {
+      title: "Harbor Heights",
+      price: "$2,85,000",
+      location: "Seattle",
+      image: project_img_4
+    },
+    {
+      title: "Maple Grove Estate",
+      price: "$3,40,000",
+      location: "Austin",
+      image: project_img_1
+    },
 ];
 
 export const vistaPropertiesData = projectsData.map((project, index) => ({
     id: index + 1,
     title: project.title,
-    type: 'House',
+    type: index % 3 === 0 ? 'House' : index % 3 === 1 ? 'Apartment' : 'Villa',
     city: project.location,
-    price: 250000,
-    beds: 3,
-    baths: 2,
+    price: 250000 + (index * 20000),
+    beds: index % 2 === 0 ? 3 : 4,
+    baths: index % 3 === 0 ? 2 : 3,
     floorspace: 1200 + (index * 200),
     image: project.image,
-    featured: index < 3
+    featured: index < 6
 }));
 
 export const testimonialsData = [
