@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { 
   Award, 
   Users, 
@@ -98,7 +98,7 @@ const About = () => {
     <section id="about" className="section-padding bg-white">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -117,17 +117,17 @@ const About = () => {
             With over 15 years of excellence, we've built a reputation for delivering 
             exceptional service and outstanding results for our clients.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Stats Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
         >
           {stats.map((stat, index) => (
-            <motion.div
+            <Motion.div
               key={stat.label}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -142,18 +142,18 @@ const About = () => {
               <div className="text-4xl font-bold text-primary-dark mb-2">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
               <div className="text-sm text-gray-600">{stat.description}</div>
-            </motion.div>
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
 
         {/* Mission & Vision */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-12 mb-20"
         >
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -172,9 +172,9 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -193,11 +193,11 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
 
         {/* Core Values */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -212,7 +212,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <motion.div
+              <Motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -226,13 +226,13 @@ const About = () => {
                 </div>
                 <h4 className="text-xl font-bold text-primary-dark mb-3">{value.title}</h4>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Timeline */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -250,7 +250,7 @@ const About = () => {
 
             <div className="space-y-12">
               {timeline.map((item, index) => (
-                <motion.div
+                <Motion.div
                   key={item.year}
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -278,14 +278,14 @@ const About = () => {
                   </div>
 
                   <div className="w-1/2"></div>
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* CTA Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -298,7 +298,7 @@ const About = () => {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied clients who have found their dream properties through our expert guidance.
             </p>
-            <motion.a
+            <Motion.a
               href="#contact"
               className="inline-flex items-center px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
@@ -306,9 +306,9 @@ const About = () => {
             >
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.a>
+            </Motion.a>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

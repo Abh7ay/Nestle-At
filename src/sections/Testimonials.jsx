@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { 
   Star, 
   ChevronLeft, 
   ChevronRight, 
   Quote,
-  Home,
-  Building,
-  MapPin
+  Building
 } from 'lucide-react';
 import { testimonialsData } from '../assets/assets';
 
@@ -43,7 +41,7 @@ const Testimonials = () => {
     <section id="testimonials" className="section-padding bg-white">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -62,12 +60,12 @@ const Testimonials = () => {
             Hear from our satisfied clients about their experiences working with Nestel@ 
             and how we helped them achieve their real estate goals.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Testimonial Carousel */}
         <div className="relative max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
-            <motion.div
+            <Motion.div
               key={currentIndex}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
@@ -120,19 +118,19 @@ const Testimonials = () => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           </AnimatePresence>
 
           {/* Navigation Controls */}
           <div className="flex justify-between items-center mt-8">
-            <motion.button
+            <Motion.button
               onClick={prevTestimonial}
               className="w-12 h-12 bg-accent-gold text-primary-dark rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronLeft className="w-6 h-6" />
-            </motion.button>
+            </Motion.button>
 
             {/* Dots Indicator */}
             <div className="flex space-x-2">
@@ -149,25 +147,25 @@ const Testimonials = () => {
               ))}
             </div>
 
-            <motion.button
+            <Motion.button
               onClick={nextTestimonial}
               className="w-12 h-12 bg-accent-gold text-primary-dark rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronRight className="w-6 h-6" />
-            </motion.button>
+            </Motion.button>
           </div>
         </div>
 
         {/* Stats Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
         >
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -176,9 +174,9 @@ const Testimonials = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">500+</div>
             <div className="text-gray-600">Happy Clients</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -187,9 +185,9 @@ const Testimonials = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">4.9</div>
             <div className="text-gray-600">Average Rating</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -198,9 +196,9 @@ const Testimonials = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">98%</div>
             <div className="text-gray-600">Satisfaction Rate</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -209,11 +207,11 @@ const Testimonials = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">15+</div>
             <div className="text-gray-600">Years Service</div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
 
         {/* CTA Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -227,7 +225,7 @@ const Testimonials = () => {
               Experience the same exceptional service that our clients rave about. 
               Let us help you find your perfect property or achieve your real estate goals.
             </p>
-            <motion.a
+            <Motion.a
               href="#contact"
               className="inline-flex items-center px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
@@ -235,9 +233,9 @@ const Testimonials = () => {
             >
               Get Started Now
               <ChevronRight className="w-5 h-5 ml-2" />
-            </motion.a>
+            </Motion.a>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
