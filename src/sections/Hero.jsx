@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion as Motion } from 'framer-motion';
 import { assets } from '../assets/assets';
 import heroBackgroundImage from '../assets/pexels-artbovich-7031408.jpg';
-import { ArrowRight, ArrowUpRight, Menu, Star } from 'lucide-react';
-import { Link } from 'react-scroll';
+import { ArrowRight, ArrowUpRight, ChevronDown, Menu, Star } from 'lucide-react';
+import { Link, scroller } from 'react-scroll';
 import { testimonialsData } from '../assets/assets';
 
 const Hero = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQuickMenuOpen, setIsQuickMenuOpen] = useState(false);
 
   const navItems = [
     { label: 'Home', target: 'hero' },
@@ -22,6 +23,24 @@ const Hero = () => {
     { number: '70+', label: 'Happy Clients' },
     { number: '$10M+', label: 'Project Value' },
   ];
+
+  const handleQuickJumpToServices = () => {
+    setIsQuickMenuOpen(false);
+    scroller.scrollTo('services', {
+      smooth: true,
+      duration: 650,
+      offset: -20,
+    });
+  };
+
+  const handleQuickJumpTo = (section) => {
+    setIsQuickMenuOpen(false);
+    scroller.scrollTo(section, {
+      smooth: true,
+      duration: 650,
+      offset: -20,
+    });
+  };
 
   return (
     <section id="hero" className="relative overflow-hidden bg-[#140d0f] py-5 md:py-8 lg:py-10">
@@ -62,8 +81,50 @@ const Hero = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="hidden h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 md:flex">
-              <span className="h-5 w-5 rounded-full bg-white/80" />
+            <div className="relative hidden">
+              <button
+                type="button"
+                onClick={() => setIsQuickMenuOpen((prev) => !prev)}
+                aria-label="Open quick navigation menu"
+                title="Quick navigation"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition-all duration-300 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f1115]"
+              >
+                <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${isQuickMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isQuickMenuOpen && (
+                  <Motion.div
+                    initial={{ opacity: 0, y: -8, scale: 0.96 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.96 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute right-0 top-12 z-40 w-40 rounded-2xl border border-white/25 bg-black/55 p-2 shadow-[0_14px_24px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+                  >
+                    <button
+                      type="button"
+                      onClick={handleQuickJumpToServices}
+                      className="w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-white/95 transition-colors duration-200 hover:bg-white/12"
+                    >
+                      Services
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickJumpTo('properties')}
+                      className="mt-1 w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-white/95 transition-colors duration-200 hover:bg-white/12"
+                    >
+                      Properties
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleQuickJumpTo('contact')}
+                      className="mt-1 w-full rounded-xl px-3 py-2 text-left text-sm font-medium text-white/95 transition-colors duration-200 hover:bg-white/12"
+                    >
+                      Contact
+                    </button>
+                  </Motion.div>
+                )}
+              </AnimatePresence>
             </div>
             <Link
               to="contact"
