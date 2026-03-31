@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { 
   Search, 
   Filter, 
@@ -59,7 +59,7 @@ const Properties = () => {
   });
 
   const PropertyCard = ({ property, index }) => (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -89,13 +89,13 @@ const Properties = () => {
         )}
         
         {/* Heart Icon */}
-        <motion.button
+        <Motion.button
           className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-accent-gold hover:text-primary-dark transition-colors"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           <Heart className="w-5 h-5" />
-        </motion.button>
+        </Motion.button>
         
         {/* Views */}
         <div className="absolute bottom-4 right-4 flex items-center text-white text-sm bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
@@ -146,7 +146,7 @@ const Properties = () => {
         </div>
         
         {/* CTA Button */}
-        <motion.a
+        <Motion.a
           href="#contact"
           className="inline-flex items-center text-accent-gold font-semibold hover:text-yellow-400 transition-colors duration-300"
           whileHover={{ x: 5 }}
@@ -154,16 +154,16 @@ const Properties = () => {
         >
           View Details
           <ArrowRight className="w-4 h-4 ml-2" />
-        </motion.a>
+        </Motion.a>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 
   return (
     <section id="properties" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -182,10 +182,10 @@ const Properties = () => {
             Browse our curated selection of premium properties in prime locations. 
             Each listing offers exceptional value and investment potential.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Search and Filter Bar */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -257,10 +257,10 @@ const Properties = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Results Count */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -277,7 +277,7 @@ const Properties = () => {
               <option>Newest First</option>
             </select>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Properties Grid */}
         <div className={`grid gap-8 ${
@@ -291,20 +291,20 @@ const Properties = () => {
         </div>
 
         {/* Load More */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <motion.button
+          <Motion.button
             className="px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Load More Properties
-          </motion.button>
-        </motion.div>
+          </Motion.button>
+        </Motion.div>
       </div>
     </section>
   );

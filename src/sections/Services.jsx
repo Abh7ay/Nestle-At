@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { 
   Home, 
   Building, 
@@ -131,7 +131,7 @@ const Services = () => {
     <section id="services" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -150,10 +150,10 @@ const Services = () => {
             From property sales to investment consulting, we provide comprehensive services 
             tailored to your unique real estate needs.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Tabs */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -174,17 +174,17 @@ const Services = () => {
               </button>
             ))}
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Stats */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
           {stats.map((stat, index) => (
-            <motion.div
+            <Motion.div
               key={stat.label}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -196,14 +196,14 @@ const Services = () => {
               <div className="text-3xl font-bold text-primary-dark mb-2">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
               <div className="text-sm text-gray-600">{stat.description}</div>
-            </motion.div>
+            </Motion.div>
           ))}
-        </motion.div>
+        </Motion.div>
 
         {/* Services Content */}
         <div className="min-h-[400px]">
           {activeTab === 'featured' ? (
-            <motion.div
+            <Motion.div
               key="featured"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -211,7 +211,7 @@ const Services = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {featuredServices.map((service, index) => (
-                <motion.div
+                <Motion.div
                   key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -250,7 +250,7 @@ const Services = () => {
                       ))}
                     </ul>
 
-                    <motion.a
+                    <Motion.a
                       href="#contact"
                       className="inline-flex items-center text-accent-gold font-semibold hover:text-yellow-400 transition-colors duration-300"
                       whileHover={{ x: 5 }}
@@ -258,13 +258,13 @@ const Services = () => {
                     >
                       Learn More
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </motion.a>
+                    </Motion.a>
                   </div>
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
           ) : (
-            <motion.div
+            <Motion.div
               key="all"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -272,7 +272,7 @@ const Services = () => {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {allServices.map((service, index) => (
-                <motion.div
+                <Motion.div
                   key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -298,14 +298,14 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
           )}
         </div>
 
         {/* CTA Section */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -318,7 +318,7 @@ const Services = () => {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Our team is ready to provide personalized services tailored to your specific real estate needs.
             </p>
-            <motion.a
+            <Motion.a
               href="#contact"
               className="inline-flex items-center px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
@@ -326,9 +326,9 @@ const Services = () => {
             >
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.a>
+            </Motion.a>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

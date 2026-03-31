@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronDown, 
   ChevronUp, 
@@ -106,7 +106,7 @@ const FAQ = () => {
     <section id="faq" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -125,17 +125,17 @@ const FAQ = () => {
             Find answers to common questions about our services, process, and how we can help 
             you achieve your real estate goals.
           </p>
-        </motion.div>
+        </Motion.div>
 
         {/* Category Filter */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-3 mb-12"
         >
           {categories.map((category) => (
-            <motion.button
+            <Motion.button
               key={category}
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center ${
@@ -152,14 +152,14 @@ const FAQ = () => {
                 </React.Fragment>
               )}
               {category}
-            </motion.button>
+            </Motion.button>
           ))}
-        </motion.div>
+        </Motion.div>
 
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto space-y-4">
           {filteredFAQs.map((faq, index) => (
-            <motion.div
+            <Motion.div
               key={faq.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const FAQ = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
             >
-              <motion.button
+              <Motion.button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-300"
                 whileHover={{ backgroundColor: "#f9fafb" }}
@@ -185,18 +185,18 @@ const FAQ = () => {
                     </span>
                   </div>
                 </div>
-                <motion.div
+                <Motion.div
                   animate={{ rotate: activeIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                   className="ml-4"
                 >
                   <ChevronDown className="w-6 h-6 text-gray-400" />
-                </motion.div>
-              </motion.button>
+                </Motion.div>
+              </Motion.button>
 
               <AnimatePresence>
                 {activeIndex === index && (
-                  <motion.div
+                  <Motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -208,15 +208,15 @@ const FAQ = () => {
                         {faq.answer}
                       </p>
                     </div>
-                  </motion.div>
+                  </Motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {/* Contact Support */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -236,7 +236,7 @@ const FAQ = () => {
               Reach out to us and we'll provide you with the information you need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
+              <Motion.a
                 href="#contact"
                 className="inline-flex items-center px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
@@ -244,8 +244,8 @@ const FAQ = () => {
               >
                 Contact Support
                 <ChevronRight className="w-5 h-5 ml-2" />
-              </motion.a>
-              <motion.a
+              </Motion.a>
+              <Motion.a
                 href="tel:+15551234567"
                 className="inline-flex items-center px-8 py-4 border-2 border-white/50 text-white rounded-lg font-semibold hover:bg-white hover:text-primary-dark transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
@@ -253,19 +253,19 @@ const FAQ = () => {
               >
                 Call Us
                 <Phone className="w-5 h-5 ml-2" />
-              </motion.a>
+              </Motion.a>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Quick Stats */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
         >
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -274,9 +274,9 @@ const FAQ = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">24/7</div>
             <div className="text-gray-600">Support Available</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -285,9 +285,9 @@ const FAQ = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">100+</div>
             <div className="text-gray-600">FAQ Topics</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -296,9 +296,9 @@ const FAQ = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">98%</div>
             <div className="text-gray-600">Questions Answered</div>
-          </motion.div>
+          </Motion.div>
 
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -307,8 +307,8 @@ const FAQ = () => {
           >
             <div className="text-3xl font-bold text-primary-dark mb-2">5min</div>
             <div className="text-gray-600">Avg Response Time</div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
     </section>
   );

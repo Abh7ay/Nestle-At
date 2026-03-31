@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { 
   Phone, 
   Mail, 
@@ -95,7 +95,7 @@ const Contact = () => {
     <section id="contact" className="section-padding bg-white">
       <div className="container-custom">
         {/* Header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,11 +114,11 @@ const Contact = () => {
             Whether you're buying, selling, or investing, our expert team is ready to help 
             you achieve your real estate goals.
           </p>
-        </motion.div>
+        </Motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -127,7 +127,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-primary-dark mb-6">Send Us a Message</h3>
               
               {isSubmitted ? (
-                <motion.div
+                <Motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
@@ -141,7 +141,7 @@ const Contact = () => {
                   <p className="text-gray-600">
                     We'll get back to you within 24 hours.
                   </p>
-                </motion.div>
+                </Motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -240,7 +240,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <motion.button
+                  <Motion.button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
@@ -258,14 +258,14 @@ const Contact = () => {
                         <Send className="w-5 h-5 ml-2" />
                       </>
                     )}
-                  </motion.button>
+                  </Motion.button>
                 </form>
               )}
             </div>
-          </motion.div>
+          </Motion.div>
 
           {/* Contact Info & Map */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -277,7 +277,7 @@ const Contact = () => {
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <motion.div
+                  <Motion.div
                     key={info.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -293,7 +293,7 @@ const Contact = () => {
                       <p className="text-gray-700">{info.details}</p>
                       <p className="text-sm text-gray-600">{info.description}</p>
                     </div>
-                  </motion.div>
+                  </Motion.div>
                 ))}
               </div>
             </div>
@@ -312,11 +312,11 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </Motion.div>
         </div>
 
         {/* Emergency Contact */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -329,7 +329,7 @@ const Contact = () => {
             <p className="text-primary-dark/80 mb-6 max-w-2xl mx-auto">
               For urgent inquiries or time-sensitive matters, call our hotline for immediate assistance.
             </p>
-            <motion.a
+            <Motion.a
               href="tel:+15551234567"
               className="inline-flex items-center px-8 py-4 bg-primary-dark text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
@@ -337,9 +337,9 @@ const Contact = () => {
             >
               <Phone className="w-5 h-5 mr-2" />
               Emergency Hotline: +1 (555) 123-4567
-            </motion.a>
+            </Motion.a>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
