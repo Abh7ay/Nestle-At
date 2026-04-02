@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { 
-  Home, 
   Building, 
   Users, 
   TrendingUp, 
-  Shield, 
   CheckCircle,
   ArrowRight,
   Target,
-  Zap,
   Award,
   Search,
   FileText,
   Calculator,
-  Camera,
   Key
 } from 'lucide-react';
 import { assets } from '../assets/assets';
@@ -128,7 +124,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-gray-50">
+    <section id="services" className="section-padding scroll-mt-28 bg-gray-50">
       <div className="container-custom">
         {/* Header */}
         <Motion.div
@@ -190,8 +186,7 @@ const Services = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
+              className="rounded-xl border border-gray-200 p-5 text-center transition-colors duration-300 hover:bg-gray-50"
             >
               <div className="text-3xl font-bold text-primary-dark mb-2">{stat.number}</div>
               <div className="text-lg font-semibold text-gray-700 mb-1">{stat.label}</div>
@@ -304,31 +299,6 @@ const Services = () => {
           )}
         </div>
 
-        {/* CTA Section */}
-        <Motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-primary-dark to-gray-800 rounded-2xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Need a Custom Solution?
-            </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Our team is ready to provide personalized services tailored to your specific real estate needs.
-            </p>
-            <Motion.a
-              href="#contact"
-              className="inline-flex items-center px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started Today
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Motion.a>
-          </div>
-        </Motion.div>
       </div>
     </section>
   );

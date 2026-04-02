@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { 
   Search, 
-  Filter, 
-  Heart, 
   Bed, 
   Bath, 
   Square, 
@@ -13,22 +11,23 @@ import {
   Star,
   Building,
   Home,
-  DollarSign,
-  TrendingUp,
   ArrowRight
 } from 'lucide-react';
 import { vistaPropertiesData } from '../assets/assets';
+import { propertySortOptions } from '../content/siteData';
 
 const Properties = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortBy, setSortBy] = useState('featured');
 
   const properties = vistaPropertiesData.map((property) => ({
     id: property.id,
     title: property.title,
     type: property.type,
     location: property.city,
+    priceValue: property.price,
     price: `$${property.price.toLocaleString()}`,
     beds: property.beds,
     baths: property.baths,
@@ -57,6 +56,28 @@ const Properties = () => {
                           property.location.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const sortedProperties = useMemo(() => {
+    const sorted = [...filteredProperties];
+
+    switch (sortBy) {
+      case 'price-low':
+        sorted.sort((a, b) => a.priceValue - b.priceValue);
+        break;
+      case 'price-high':
+        sorted.sort((a, b) => b.priceValue - a.priceValue);
+        break;
+      case 'beds-high':
+        sorted.sort((a, b) => b.beds - a.beds);
+        break;
+      case 'featured':
+      default:
+        sorted.sort((a, b) => Number(b.featured) - Number(a.featured));
+        break;
+    }
+
+    return sorted;
+  }, [filteredProperties, sortBy]);
 
   const PropertyCard = ({ property, index }) => (
     <Motion.div
@@ -87,15 +108,6 @@ const Properties = () => {
             </span>
           </div>
         )}
-        
-        {/* Heart Icon */}
-        <Motion.button
-          className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-accent-gold hover:text-primary-dark transition-colors"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <Heart className="w-5 h-5" />
-        </Motion.button>
         
         {/* Views */}
         <div className="absolute bottom-4 right-4 flex items-center text-white text-sm bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
@@ -160,7 +172,7 @@ const Properties = () => {
   );
 
   return (
-    <section id="properties" className="section-padding bg-gray-50">
+    <section id="properties" className="section-padding scroll-mt-28 bg-gray-50">
       <div className="container-custom">
         {/* Header */}
         <Motion.div
@@ -267,44 +279,39 @@ const Properties = () => {
           className="flex justify-between items-center mb-8"
         >
           <p className="text-gray-600">
-            Showing <span className="font-semibold text-primary-dark">{filteredProperties.length}</span> properties
+            Showing <span className="font-semibold text-primary-dark">{sortedProperties.length}</span> properties
           </p>
-          <div className="flex items-center space-x-4">
-            <select className="px-4 py-2 border border-gray-200 rounded-lg focus:border-accent-gold focus:outline-none">
-              <option>Sort by: Featured</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Newest First</option>
-            </select>
-          </div>
+          <select
+            value={sortBy}
+            onChange={(event) => setSortBy(event.target.value)}
+            className="rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-600 focus:border-accent-gold focus:outline-none"
+            aria-label="Sort properties"
+          >
+            {propertySortOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                Sort by: {option.label}
+              </option>
+            ))}
+          </select>
         </Motion.div>
 
         {/* Properties Grid */}
+        {sortedProperties.length === 0 ? (
+          <div className="rounded-2xl border border-gray-200 bg-white p-10 text-center text-gray-600">
+            No properties match your current filters. Try a different category or search term.
+          </div>
+        ) : (
         <div className={`grid gap-8 ${
           viewMode === 'grid' 
             ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
             : 'grid-cols-1'
         }`}>
-          {filteredProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
+          {sortedProperties.map((property, index) => (
+            <PropertyCard key={property.id} property={property} index={index} />
           ))}
         </div>
+        )}
 
-        {/* Load More */}
-        <Motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <Motion.button
-            className="px-8 py-4 bg-accent-gold text-primary-dark rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Load More Properties
-          </Motion.button>
-        </Motion.div>
       </div>
     </section>
   );

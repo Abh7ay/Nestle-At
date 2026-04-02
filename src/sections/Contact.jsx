@@ -6,11 +6,7 @@ import {
   MapPin, 
   Clock, 
   Send, 
-  MessageSquare,
-  Building,
-  Users,
-  Globe,
-  ArrowRight
+  Building
 } from 'lucide-react';
 
 const Contact = () => {
@@ -92,7 +88,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding scroll-mt-28 bg-white">
       <div className="container-custom">
         {/* Header */}
         <Motion.div
@@ -298,48 +294,9 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-primary-dark mb-6">Our Location</h3>
-              
-              <div className="relative h-64 bg-gradient-to-br from-accent-gold/10 to-yellow-400/10 rounded-xl overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-accent-gold mx-auto mb-4" />
-                    <p className="text-gray-600 font-medium">123 Main St, New York, NY 10001</p>
-                    <p className="text-sm text-gray-500 mt-2">Interactive map coming soon</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </Motion.div>
         </div>
 
-        {/* Emergency Contact */}
-        <Motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <div className="bg-gradient-to-r from-accent-gold to-yellow-400 rounded-2xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-primary-dark mb-4">
-              Need Immediate Assistance?
-            </h3>
-            <p className="text-primary-dark/80 mb-6 max-w-2xl mx-auto">
-              For urgent inquiries or time-sensitive matters, call our hotline for immediate assistance.
-            </p>
-            <Motion.a
-              href="tel:+15551234567"
-              className="inline-flex items-center px-8 py-4 bg-primary-dark text-white rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Emergency Hotline: +1 (555) 123-4567
-            </Motion.a>
-          </div>
-        </Motion.div>
       </div>
     </section>
   );

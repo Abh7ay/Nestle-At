@@ -14,24 +14,28 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0B1220] text-[#9CA3AF]">
+    <footer className="bg-primary-dark text-gray-400">
       <div className="container-custom py-6 md:py-7">
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm md:text-[1.03rem]">
-          <a href="#hero" aria-label="Nestle@" className="inline-flex items-center text-[#E5E7EB] hover:text-white transition-colors">
-            <img src={assets.logo} alt="Nestle@" className="h-7 w-auto" />
-          </a>
-
-          <span className="text-[#9CA3AF]">&copy; 2026 Nestle@. All rights reserved.</span>
-
-          {footerLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-[#9CA3AF] hover:text-[#E5E7EB] transition-colors"
-            >
-              {link.name}
+        <div className="flex flex-col gap-4 text-[0.94rem] md:text-base">
+          <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+            <a href="#hero" aria-label="Nestle@" className="inline-flex items-center text-white hover:opacity-90 transition-opacity">
+              <img src={assets.logo} alt="Nestle@" className="h-7 w-auto" />
             </a>
-          ))}
+
+            <span className="text-sm md:text-[0.95rem] text-gray-400">&copy; 2026 Nestle@. All rights reserved.</span>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-start">
+            {footerLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

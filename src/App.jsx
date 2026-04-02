@@ -12,7 +12,6 @@ import Contact from './sections/Contact'
 import Footer from './components/layout/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
-// Original Components (will be replaced gradually)
 import Login from './components/login'
 import Signup from './components/signup'
 import { ToastContainer } from 'react-toastify';
